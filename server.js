@@ -8,10 +8,7 @@ const dotenv = require('dotenv');
 const authRouter = require('./Routes/routes');
 const chatRoutes = require('./Routes/chatroutes');
 const messageRoutes = require('./Routes/messageroutes');
-const path = require('path');
-
 const { notFound, errorHandler } = require('./Middleware/errorMiddelware');
-const exp = require('constants');
 
 //Configrations
 dotenv.config();
