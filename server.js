@@ -2,7 +2,7 @@
 const express = require('express');
 const connectDB = require('./Config/db');
 const cors = require('cors');
-const PORT = 5000;
+const PORT = 5000 || process.env.PORT;
 const app = express();
 const dotenv = require('dotenv');
 const authRouter = require('./Routes/routes');
@@ -27,22 +27,15 @@ app.use(notFound);
 app.use(errorHandler);
 
 //Server Port Api
-const server = app.listen(PORT, () => {
-  console.log(`Server is Running on ${PORT}`);
-});
-
-//Testing Api Endpoint to work
-app.get('/test', (req, res) => {
-  res
-    .status(200)
-    .json({ status: true, message: 'Welcome to Chat Application' });
-});
+const server = app.listen(
+  PORT,
+  console.log(`Server running on PORT ${PORT}...`)
+);
 
 const io = require('socket.io')(server, {
   pingTimeout: 60000,
   cors: {
-    origin:
-      'https://65337ece4e79937840794b0f--harmonious-cat-581f3a.netlify.app',
+    origin: 'http://localhost:3000',
     // credentials: true,
   },
 });
