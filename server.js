@@ -41,7 +41,8 @@ app.get('/test', (req, res) => {
 const io = require('socket.io')(server, {
   pingTimeout: 60000,
   cors: {
-    origin: 'http://localhost:3000',
+    origin:
+      'https://65337ece4e79937840794b0f--harmonious-cat-581f3a.netlify.app/',
     // credentials: true,
   },
 });
